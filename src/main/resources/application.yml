@@ -1,6 +1,10 @@
+
+
 server:
   servlet:
     context-path: /wakimob/api
+  port:
+    8081
 
 spring:
   datasource:

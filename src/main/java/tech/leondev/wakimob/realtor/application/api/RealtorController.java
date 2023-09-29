@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import tech.leondev.wakimob.credential.application.service.CredentialService;
 import tech.leondev.wakimob.realtor.application.service.RealtorService;
 
+import java.util.UUID;
+
 @Log4j2
 @RequiredArgsConstructor
 @RestController
@@ -17,6 +19,14 @@ public class RealtorController implements RealtorAPI{
         log.info("[start] RealtorController - save");
         RealtorResponseDTO response = realtorService.save(request);
         log.info("[start] RealtorController - save");
+        return response;
+    }
+
+    @Override
+    public RealtorResponseDTO get(UUID idRealtor) {
+        log.info("[start] RealtorController - get");
+        RealtorResponseDTO response = realtorService.get(idRealtor);
+        log.info("[end] RealtorController - get");
         return response;
     }
 }
