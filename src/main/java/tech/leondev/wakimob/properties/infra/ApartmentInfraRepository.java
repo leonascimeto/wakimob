@@ -41,4 +41,11 @@ public class ApartmentInfraRepository implements ApartmentRepository {
         log.info("[end] ApartmentInfraRepository - list");
         return apartment;
     }
+
+    @Override
+    public void delete(Apartment apartment) {
+        log.info("[start] ApartmentInfraRepository - delete");
+        apartmentSpringDataJPARepository.delete(apartment);
+        log.info("[end] ApartmentInfraRepository - delete");
+    }
 }

@@ -23,7 +23,9 @@ public interface PropertyService {
 
     List<ApartmentResponseDTO> listApartments();
 
-    ApartmentResponseDTO getApartmentById(UUID apartmentID);
+    ApartmentResponseDTO getApartmentById(UUID idApartment);
 
     void updateApartment(ApartmentRequestDTO apartmentRequestDTO, UUID idApartment);
+
+    void deleteApartment(UUID idApartment);
 }

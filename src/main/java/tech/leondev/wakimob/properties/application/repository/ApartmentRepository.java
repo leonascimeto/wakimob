@@ -12,4 +12,6 @@ public interface ApartmentRepository {
     List<Apartment> list();
 
     Apartment getById(UUID apartmentId);
+
+    void delete(Apartment apartment);
 }

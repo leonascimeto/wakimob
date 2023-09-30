@@ -81,4 +81,11 @@ public class PropertyController implements PropertyApi {
         propertyService.updateApartment(apartmentRequestDTO, idApartment);
         log.info("[end] PropertyController - updateApartment");
     }
+
+    @Override
+    public void deleteApartment(UUID idApartment) {
+        log.info("[start] PropertyController - deleteApartment");
+        propertyService.deleteApartment(idApartment);
+        log.info("[end] PropertyController - deleteApartment");
+    }
 }

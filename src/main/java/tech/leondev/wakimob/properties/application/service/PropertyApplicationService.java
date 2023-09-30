@@ -95,4 +95,12 @@ public class PropertyApplicationService implements PropertyService{
         log.info("[end] PropertyApplicationService - updateApartment");
 
     }
+
+    @Override
+    public void deleteApartment(UUID idApartment) {
+        log.info("[start] PropertyApplicationService - deleteApartment");
+        Apartment apartment = apartmentRepository.getById(idApartment);
+        apartmentRepository.delete(apartment);
+        log.info("[end] PropertyApplicationService - deleteApartment");
+    }
 }

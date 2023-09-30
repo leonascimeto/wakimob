@@ -46,4 +46,7 @@ public interface PropertyApi {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void updateApartment(@RequestBody @Valid ApartmentRequestDTO apartmentRequestDTO, @PathVariable UUID idApartment);
 
+    @DeleteMapping("/apartments/{idApartment}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deleteApartment(@PathVariable UUID idApartment);
 }
