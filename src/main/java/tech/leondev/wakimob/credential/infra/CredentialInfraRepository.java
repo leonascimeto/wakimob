@@ -2,11 +2,11 @@ package tech.leondev.wakimob.credential.infra;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import tech.leondev.wakimob.credential.application.repository.CredentialRepository;
 import tech.leondev.wakimob.credential.domain.Credential;
-import tech.leondev.wakimob.realtor.domain.Realtor;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -21,5 +21,13 @@ public class CredentialInfraRepository implements CredentialRepository {
         Credential credentialSaved = credentialSpringDataJPARepository.save(credential);
         log.info("[end] CredentialInfraRepository - save");
         return credentialSaved;
+    }
+
+    @Override
+    public UserDetails findByUsername(String username) {
+        log.info("[start] CredentialInfraRepository - findByUsername");
+        UserDetails credential = credentialSpringDataJPARepository.findByUsername(username);
+        log.info("[end] CredentialInfraRepository - findByUsername");
+        return credential;
     }
 }

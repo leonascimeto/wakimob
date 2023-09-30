@@ -3,6 +3,8 @@ package tech.leondev.wakimob.handler;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -26,7 +28,16 @@ public class RestResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ErrorApiResponse.builder()
                         .description("INTERNAL_SERVER_ERROR!")
-                        .message("POR FAVOR INFORME AO ADMINISTRADOR DO SISTEMA!")
+                        .message("PLEASE CONTACT SUPPORT!")
+                        .build());
+    }
+
+    @ExceptionHandler(InternalAuthenticationServiceException.class)
+    public ResponseEntity<ErrorApiResponse> handleUsernameNotFoundException(InternalAuthenticationServiceException ex) {
+        log.error("Username not found: ", ex);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(ErrorApiResponse.builder()
+                        .message("Invalid credentials")
                         .build());
     }
 

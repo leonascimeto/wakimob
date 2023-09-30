@@ -1,5 +1,3 @@
-
-
 server:
   servlet:
     context-path: /wakimob/api
@@ -14,3 +12,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+
+api:
+  securiry:
+    token:
+      secret: ${JWT_SECRET:mu-secret-key}

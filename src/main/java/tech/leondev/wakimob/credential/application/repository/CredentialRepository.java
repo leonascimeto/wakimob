@@ -1,8 +1,9 @@
 package tech.leondev.wakimob.credential.application.repository;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import tech.leondev.wakimob.credential.domain.Credential;
-import tech.leondev.wakimob.realtor.domain.Realtor;
 
 public interface CredentialRepository {
     Credential save(Credential credential);
+    UserDetails findByUsername(String username);
 }

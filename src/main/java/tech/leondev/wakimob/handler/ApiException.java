@@ -10,9 +10,9 @@ import java.util.Optional;
 
 @Log4j2
 @Getter
-public class ApiException  extends RuntimeException{
-    private HttpStatus status;
-    private ErrorApiResponse body;
+public class ApiException extends RuntimeException{
+    private final HttpStatus status;
+    private final ErrorApiResponse body;
 
     private ApiException(HttpStatus status, String message, Exception e){
         super(message, e);
