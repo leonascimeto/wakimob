@@ -20,4 +20,6 @@ public interface PropertyService {
     void deletePlot(UUID idPlot);
 
     ApartmentResponseDTO saveApartment(ApartmentRequestDTO apartmentRequestDTO);
+
+    List<ApartmentResponseDTO> listApartments();
 }

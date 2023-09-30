@@ -58,4 +58,12 @@ public class PropertyController implements PropertyApi {
         log.info("[end] PropertyController - saveApartment");
         return response;
     }
+
+    @Override
+    public List<ApartmentResponseDTO> listApartment() {
+        log.info("[start] PropertyController - listApartment");
+        List<ApartmentResponseDTO> response = propertyService.listApartments();
+        log.info("[end] PropertyController - listApartment");
+        return response;
+    }
 }

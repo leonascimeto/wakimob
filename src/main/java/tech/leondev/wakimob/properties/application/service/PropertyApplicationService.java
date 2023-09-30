@@ -69,4 +69,12 @@ public class PropertyApplicationService implements PropertyService{
         log.info("[end] PropertyApplicationService - saveApartment");
         return new ApartmentResponseDTO(apartment);
     }
+
+    @Override
+    public List<ApartmentResponseDTO> listApartments() {
+        log.info("[start] PropertyApplicationService - listApartments");
+        List<Apartment> apartaments = apartmentRepository.list();
+        log.info("[end] PropertyApplicationService - listApartments");
+        return ApartmentResponseDTO.convertApartmentsToList(apartaments);
+    }
 }

@@ -33,4 +33,9 @@ public interface PropertyApi {
     @PostMapping("/apartments")
     @ResponseStatus(HttpStatus.OK)
     ApartmentResponseDTO saveApartment(@RequestBody @Valid ApartmentRequestDTO apartmentRequestDTO);
+
+    @GetMapping("/apartments")
+    @ResponseStatus(HttpStatus.OK)
+    List<ApartmentResponseDTO> listApartment();
+
 }

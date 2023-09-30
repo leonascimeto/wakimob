@@ -6,7 +6,9 @@ import tech.leondev.wakimob.properties.domain.Apartment;
 import tech.leondev.wakimob.properties.domain.PropertyStatus;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Value
 public class ApartmentResponseDTO {
@@ -30,5 +32,9 @@ public class ApartmentResponseDTO {
         this.bedrooms = apartment.getBedrooms();
         this.bathrooms = apartment.getBathrooms();
         this.garageSpaces = apartment.getGarageSpaces();
+    }
+
+    public static List<ApartmentResponseDTO> convertApartmentsToList(List<Apartment> apartaments) {
+        return apartaments.stream().map(ApartmentResponseDTO::new).collect(Collectors.toList());
     }
 }
