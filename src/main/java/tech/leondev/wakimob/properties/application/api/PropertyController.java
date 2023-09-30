@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tech.leondev.wakimob.properties.application.service.PropertyService;
 
 import java.util.List;
+import java.util.UUID;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -25,6 +26,14 @@ public class PropertyController implements PropertyApi {
         log.info("[start] PropertyController - listPlots");
         List<PlotResponseDTO> response = propertyService.listPlots();
         log.info("[end] PropertyController - listPlots");
+        return response;
+    }
+
+    @Override
+    public PlotResponseDTO getPlotById(UUID idPlot) {
+        log.info("[start] PropertyController - getPlotById");
+        PlotResponseDTO response = propertyService.getPLotById(idPlot);
+        log.info("[end] PropertyController - getPlotById");
         return response;
     }
 }

@@ -9,6 +9,7 @@ import tech.leondev.wakimob.properties.domain.Plot;
 import tech.leondev.wakimob.realtor.application.repository.PropertyRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -29,5 +30,13 @@ public class PropertyApplicationService implements PropertyService{
         List<Plot> plots = propertyRepository.listPlots();
         log.info("[end] PropertyApplicationService - listPlots");
         return PlotResponseDTO.convertPlotsToList(plots);
+    }
+
+    @Override
+    public PlotResponseDTO getPLotById(UUID idPlot) {
+        log.info("[start] PropertyApplicationService - getPLotById");
+        Plot plot = propertyRepository.getPlotById(idPlot);
+        log.info("[end] PropertyApplicationService - getPLotById");
+        return new PlotResponseDTO(plot);
     }
 }

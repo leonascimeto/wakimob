@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/properties")
@@ -16,4 +17,8 @@ public interface PropertyApi {
     @GetMapping("/plots")
     @ResponseStatus(HttpStatus.OK)
     List<PlotResponseDTO> listPlots();
+
+    @GetMapping("/plots/{idPlot}")
+    @ResponseStatus(HttpStatus.OK)
+    PlotResponseDTO getPlotById(@PathVariable UUID idPlot);
 }
