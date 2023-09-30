@@ -30,4 +30,15 @@ public class Apartment extends Property{
         this.bathrooms = apartmentRequestDTO.bathrooms();
         this.garageSpaces = apartmentRequestDTO.garageSpaces();
     }
+
+    public void update(ApartmentRequestDTO apartmentRequestDTO) {
+        this.title = apartmentRequestDTO.title();
+        this.description = apartmentRequestDTO.description();
+        this.totalArea = apartmentRequestDTO.totalArea();
+        this.price = apartmentRequestDTO.price();
+        this.statusProperty = apartmentRequestDTO.statusProperty();
+        this.bedrooms = apartmentRequestDTO.bedrooms();
+        this.bathrooms = apartmentRequestDTO.bathrooms();
+        this.garageSpaces = apartmentRequestDTO.garageSpaces();
+    }
 }

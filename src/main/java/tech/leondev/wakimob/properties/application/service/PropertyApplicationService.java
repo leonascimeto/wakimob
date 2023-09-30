@@ -79,10 +79,20 @@ public class PropertyApplicationService implements PropertyService{
     }
 
     @Override
-    public ApartmentResponseDTO getApartmentById(UUID apartmentId) {
+    public ApartmentResponseDTO getApartmentById(UUID idApartment) {
         log.info("[start] PropertyApplicationService - getApartmentById");
-        Apartment apartment = apartmentRepository.getById(apartmentId);
+        Apartment apartment = apartmentRepository.getById(idApartment);
         log.info("[end] PropertyApplicationService - getApartmentById");
         return new ApartmentResponseDTO(apartment);
+    }
+
+    @Override
+    public void updateApartment(ApartmentRequestDTO apartmentRequestDTO, UUID idApartment) {
+        log.info("[start] PropertyApplicationService - updateApartment");
+        Apartment apartment = apartmentRepository.getById(idApartment);
+        apartment.update(apartmentRequestDTO);
+        apartmentRepository.save(apartment);
+        log.info("[end] PropertyApplicationService - updateApartment");
+
     }
 }

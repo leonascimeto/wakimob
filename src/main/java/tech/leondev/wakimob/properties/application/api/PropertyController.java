@@ -74,4 +74,11 @@ public class PropertyController implements PropertyApi {
         log.info("[end] PropertyController - getApartmentById");
         return response;
     }
+
+    @Override
+    public void updateApartment(ApartmentRequestDTO apartmentRequestDTO, UUID idApartment) {
+        log.info("[start] PropertyController - updateApartment");
+        propertyService.updateApartment(apartmentRequestDTO, idApartment);
+        log.info("[end] PropertyController - updateApartment");
+    }
 }

@@ -41,4 +41,9 @@ public interface PropertyApi {
     @GetMapping("/apartments/{idApartment}")
     @ResponseStatus(HttpStatus.OK)
     ApartmentResponseDTO getApartmentById(@PathVariable UUID idApartment);
+
+    @PatchMapping("/apartments/{idApartment}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void updateApartment(@RequestBody @Valid ApartmentRequestDTO apartmentRequestDTO, @PathVariable UUID idApartment);
+
 }
