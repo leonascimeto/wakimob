@@ -26,4 +26,14 @@ public class Plot extends Property{
         this.plotTopography = plotRequestDTO.plotTopography();
         this.plotSoilType = plotRequestDTO.plotSoilType();
     }
+
+    public void update(PlotRequestDTO plotRequestDTO) {
+        this.title = plotRequestDTO.title();
+        this.description = plotRequestDTO.description();
+        this.totalArea = plotRequestDTO.totalArea();
+        this.price = plotRequestDTO.price();
+        this.statusProperty = plotRequestDTO.statusProperty();
+        this.plotTopography = plotRequestDTO.plotTopography();
+        this.plotSoilType = plotRequestDTO.plotSoilType();
+    }
 }

@@ -12,4 +12,8 @@ public interface PropertyService {
     List<PlotResponseDTO> listPlots();
 
     PlotResponseDTO getPLotById(UUID idPlot);
+
+    void updatePlot(PlotRequestDTO plotRequestDTO, UUID idPlot);
+
+    void deletePlot(UUID idPlot);
 }

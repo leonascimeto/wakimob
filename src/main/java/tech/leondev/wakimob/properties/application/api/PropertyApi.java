@@ -21,4 +21,12 @@ public interface PropertyApi {
     @GetMapping("/plots/{idPlot}")
     @ResponseStatus(HttpStatus.OK)
     PlotResponseDTO getPlotById(@PathVariable UUID idPlot);
+
+    @PatchMapping("/plots/{idPlot}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void updatePlot(@RequestBody @Valid PlotRequestDTO plotRequestDTO, @PathVariable UUID idPlot);
+
+    @DeleteMapping("/plots/{idPlot}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deletePlot(@PathVariable UUID idPlot);
 }

@@ -39,4 +39,21 @@ public class PropertyApplicationService implements PropertyService{
         log.info("[end] PropertyApplicationService - getPLotById");
         return new PlotResponseDTO(plot);
     }
+
+    @Override
+    public void updatePlot(PlotRequestDTO plotRequestDTO, UUID idPlot) {
+        log.info("[start] PropertyApplicationService - updatePlot");
+        Plot plot = propertyRepository.getPlotById(idPlot);
+        plot.update(plotRequestDTO);
+        propertyRepository.savePlot(plot);
+        log.info("[end] PropertyApplicationService - updatePlot");
+    }
+
+    @Override
+    public void deletePlot(UUID idPlot) {
+        log.info("[start] PropertyApplicationService - deletePlot");
+        Plot plot = propertyRepository.getPlotById(idPlot);
+        propertyRepository.deletePlot(plot);
+        log.info("[end] PropertyApplicationService - deletePlot");
+    }
 }

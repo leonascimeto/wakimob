@@ -36,4 +36,18 @@ public class PropertyController implements PropertyApi {
         log.info("[end] PropertyController - getPlotById");
         return response;
     }
+
+    @Override
+    public void updatePlot(PlotRequestDTO plotRequestDTO, UUID idPlot) {
+        log.info("[start] PropertyController - updatePlot");
+        propertyService.updatePlot(plotRequestDTO, idPlot);
+        log.info("[end] PropertyController - updatePlot");
+    }
+
+    @Override
+    public void deletePlot(UUID idPlot) {
+        log.info("[start] PropertyController - deletePlot");
+        propertyService.deletePlot(idPlot);
+        log.info("[end] PropertyController - deletePlot");
+    }
 }

@@ -40,4 +40,11 @@ public class PropertyInfraRepository implements PropertyRepository {
         log.info("[end] PropertyInfraRepository - getPlotById");
         return plot;
     }
+
+    @Override
+    public void deletePlot(Plot plot) {
+        log.info("[start] PropertyInfraRepository - deletePlot");
+        plotSpringDataJPARepository.delete(plot);
+        log.info("[end] PropertyInfraRepository - deletePlot");
+    }
 }

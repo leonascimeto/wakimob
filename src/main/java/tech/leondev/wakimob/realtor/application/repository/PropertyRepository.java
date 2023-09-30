@@ -11,4 +11,6 @@ public interface PropertyRepository {
     List<Plot> listPlots();
 
     Plot getPlotById(UUID idPlot);
+
+    void deletePlot(Plot plot);
 }
