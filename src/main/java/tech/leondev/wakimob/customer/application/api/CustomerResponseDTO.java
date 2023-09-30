@@ -1,7 +1,7 @@
-package tech.leondev.wakimob.client.application.api;
+package tech.leondev.wakimob.customer.application.api;
 
 import lombok.Value;
-import tech.leondev.wakimob.client.domain.Client;
+import tech.leondev.wakimob.customer.domain.Customer;
 
 @Value
 public class ClientResponseDTO {
@@ -11,7 +11,7 @@ public class ClientResponseDTO {
     private String email;
     private String address;
 
-    public ClientResponseDTO(Client client) {
+    public ClientResponseDTO(Customer client) {
         this.name = client.getName();
         this.cpf = client.getCpf();
         this.telephone = client.getTelephone();

@@ -1,4 +1,4 @@
-package tech.leondev.wakimob.client.application.api;
+package tech.leondev.wakimob.customer.application.api;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

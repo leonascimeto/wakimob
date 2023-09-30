@@ -1,7 +1,7 @@
 package tech.leondev.wakimob.realtor.application.repository;
 
-import tech.leondev.wakimob.client.domain.Client;
+import tech.leondev.wakimob.customer.domain.Customer;
 
 public interface ClientRepository {
-    Client save(Client client);
+    Customer save(Customer client);
 }
