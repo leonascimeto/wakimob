@@ -22,4 +22,6 @@ public interface PropertyService {
     ApartmentResponseDTO saveApartment(ApartmentRequestDTO apartmentRequestDTO);
 
     List<ApartmentResponseDTO> listApartments();
+
+    ApartmentResponseDTO getApartmentById(UUID apartmentID);
 }

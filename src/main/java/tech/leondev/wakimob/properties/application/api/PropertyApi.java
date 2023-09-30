@@ -38,4 +38,7 @@ public interface PropertyApi {
     @ResponseStatus(HttpStatus.OK)
     List<ApartmentResponseDTO> listApartment();
 
+    @GetMapping("/apartments/{idApartment}")
+    @ResponseStatus(HttpStatus.OK)
+    ApartmentResponseDTO getApartmentById(@PathVariable UUID idApartment);
 }

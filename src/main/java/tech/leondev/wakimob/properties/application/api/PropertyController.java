@@ -66,4 +66,12 @@ public class PropertyController implements PropertyApi {
         log.info("[end] PropertyController - listApartment");
         return response;
     }
+
+    @Override
+    public ApartmentResponseDTO getApartmentById(UUID idApartment) {
+        log.info("[start] PropertyController - getApartmentById");
+        ApartmentResponseDTO response = propertyService.getApartmentById(idApartment);
+        log.info("[end] PropertyController - getApartmentById");
+        return response;
+    }
 }
