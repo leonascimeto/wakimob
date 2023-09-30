@@ -1,4 +1,4 @@
-package tech.leondev.wakimob.client.domain;
+package tech.leondev.wakimob.customer.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -8,19 +8,19 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
-import tech.leondev.wakimob.client.application.api.ClienteCreateDTO;
+import tech.leondev.wakimob.customer.application.api.CustomerRequestDTO;
 
 import java.util.UUID;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-@Table(name = "clients")
-@Entity(name = "clients")
-public class Client {
+@Table(name = "customers")
+@Entity(name = "customers")
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
-    private UUID idClient;
+    private UUID idCustomer;
     @NotBlank
     @Size(min = 4, max = 80)
     private String name;
@@ -38,11 +38,19 @@ public class Client {
     @Size(min = 4, max = 80)
     private String address;
 
-    public Client(ClienteCreateDTO clienteCreateDTO){
-        this.name = clienteCreateDTO.name();
-        this.cpf = clienteCreateDTO.cpf();
-        this.telephone = clienteCreateDTO.telephone();
-        this.email = clienteCreateDTO.email();
-        this.address = clienteCreateDTO.address();
+    public Customer(CustomerRequestDTO customerRequestDTO){
+        this.name = customerRequestDTO.name();
+        this.cpf = customerRequestDTO.cpf();
+        this.telephone = customerRequestDTO.telephone();
+        this.email = customerRequestDTO.email();
+        this.address = customerRequestDTO.address();
+    }
+
+    public void update(CustomerRequestDTO customerRequestDTO) {
+        this.name = customerRequestDTO.name();
+        this.cpf = customerRequestDTO.cpf();
+        this.telephone = customerRequestDTO.telephone();
+        this.email = customerRequestDTO.email();
+        this.address = customerRequestDTO.address();
     }
 }

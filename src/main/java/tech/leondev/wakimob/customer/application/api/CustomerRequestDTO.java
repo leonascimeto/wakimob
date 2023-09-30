@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.br.CPF;
 
-public record ClienteCreateDTO(
+public record CustomerRequestDTO(
         @NotBlank
         @Size(min = 4, max = 80)
         String name,

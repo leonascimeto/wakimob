@@ -34,14 +34,14 @@ public class RestResponseEntityExceptionHandler {
 
     @ExceptionHandler(InternalAuthenticationServiceException.class)
     public ResponseEntity<ErrorApiResponse> handleUsernameNotFoundException(InternalAuthenticationServiceException ex) {
-        log.error("Username not found: ", ex);
+        log.error("Authentication exception: ", ex);
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(ErrorApiResponse.builder()
                         .message("Invalid credentials")
                         .build());
     }
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();

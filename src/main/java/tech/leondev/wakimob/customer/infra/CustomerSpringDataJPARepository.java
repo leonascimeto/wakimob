@@ -5,5 +5,5 @@ import tech.leondev.wakimob.customer.domain.Customer;
 
 import java.util.UUID;
 
-public interface ClientSpringDataJPARepository extends JpaRepository<Customer, UUID> {
+public interface CustomerSpringDataJPARepository extends JpaRepository<Customer, UUID> {
 }
