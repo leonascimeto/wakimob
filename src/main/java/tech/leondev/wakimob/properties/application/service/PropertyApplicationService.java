@@ -8,6 +8,8 @@ import tech.leondev.wakimob.properties.application.api.PlotResponseDTO;
 import tech.leondev.wakimob.properties.domain.Plot;
 import tech.leondev.wakimob.realtor.application.repository.PropertyRepository;
 
+import java.util.List;
+
 @Log4j2
 @RequiredArgsConstructor
 @Service
@@ -19,5 +21,13 @@ public class PropertyApplicationService implements PropertyService{
         Plot plot = propertyRepository.savePlot(new Plot(plotRequestDTO));
         log.info("[end] PropertyApplicationService - savePlot");
         return new PlotResponseDTO(plot);
+    }
+
+    @Override
+    public List<PlotResponseDTO> listPlots() {
+        log.info("[start] PropertyApplicationService - listPlots");
+        List<Plot> plots = propertyRepository.listPlots();
+        log.info("[end] PropertyApplicationService - listPlots");
+        return PlotResponseDTO.convertPlotsToList(plots);
     }
 }

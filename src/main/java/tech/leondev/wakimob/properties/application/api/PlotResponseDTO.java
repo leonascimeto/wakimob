@@ -12,7 +12,9 @@ import tech.leondev.wakimob.properties.domain.PlotTopography;
 import tech.leondev.wakimob.properties.domain.PropertyStatus;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Value
 public class PlotResponseDTO {
@@ -34,4 +36,7 @@ public class PlotResponseDTO {
         this.plotSoilType = plot.getPlotSoilType();
     }
 
+    public static List<PlotResponseDTO> convertPlotsToList(List<Plot> plots) {
+        return plots.stream().map(PlotResponseDTO::new).collect(Collectors.toList());
+    }
 }
