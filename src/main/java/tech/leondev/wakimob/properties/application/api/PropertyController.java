@@ -50,4 +50,12 @@ public class PropertyController implements PropertyApi {
         propertyService.deletePlot(idPlot);
         log.info("[end] PropertyController - deletePlot");
     }
+
+    @Override
+    public ApartmentResponseDTO saveApartment(ApartmentRequestDTO apartmentRequestDTO) {
+        log.info("[start] PropertyController - saveApartment");
+        ApartmentResponseDTO response = propertyService.saveApartment(apartmentRequestDTO);
+        log.info("[end] PropertyController - saveApartment");
+        return response;
+    }
 }

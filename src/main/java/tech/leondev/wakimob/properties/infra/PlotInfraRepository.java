@@ -5,8 +5,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 import tech.leondev.wakimob.handler.ApiException;
+import tech.leondev.wakimob.properties.application.repository.PlotRepository;
 import tech.leondev.wakimob.properties.domain.Plot;
-import tech.leondev.wakimob.realtor.application.repository.PropertyRepository;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,8 +14,9 @@ import java.util.UUID;
 @Log4j2
 @RequiredArgsConstructor
 @Repository
-public class PropertyInfraRepository implements PropertyRepository {
+public class PlotInfraRepository implements PlotRepository {
     private final PlotSpringDataJPARepository plotSpringDataJPARepository;
+    private final ApartmentSpringDataJPARepository apartmentSpringDataJPARepository;
     @Override
     public Plot savePlot(Plot plot) {
         log.info("[start] PropertyInfraRepository - savePlot");

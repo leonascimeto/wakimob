@@ -29,4 +29,8 @@ public interface PropertyApi {
     @DeleteMapping("/plots/{idPlot}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deletePlot(@PathVariable UUID idPlot);
+
+    @PostMapping("/apartments")
+    @ResponseStatus(HttpStatus.OK)
+    ApartmentResponseDTO saveApartment(@RequestBody @Valid ApartmentRequestDTO apartmentRequestDTO);
 }

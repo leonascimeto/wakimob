@@ -1,5 +1,7 @@
 package tech.leondev.wakimob.properties.application.service;
 
+import tech.leondev.wakimob.properties.application.api.ApartmentRequestDTO;
+import tech.leondev.wakimob.properties.application.api.ApartmentResponseDTO;
 import tech.leondev.wakimob.properties.application.api.PlotRequestDTO;
 import tech.leondev.wakimob.properties.application.api.PlotResponseDTO;
 
@@ -16,4 +18,6 @@ public interface PropertyService {
     void updatePlot(PlotRequestDTO plotRequestDTO, UUID idPlot);
 
     void deletePlot(UUID idPlot);
+
+    ApartmentResponseDTO saveApartment(ApartmentRequestDTO apartmentRequestDTO);
 }
