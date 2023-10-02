@@ -8,4 +8,6 @@ public interface RealtorRepository {
     Realtor save(Realtor realtor);
 
     Realtor get(UUID idRealtor);
+
+    Realtor getByUsername(String username);
 }

@@ -35,4 +35,12 @@ public class RealtorApplicationService implements RealtorService{
         log.info("[end] RealtorApplicationService - get");
         return new RealtorResponseDTO(realtor);
     }
+
+    @Override
+    public Realtor getByUsername(String username) {
+        log.info("[start] RealtorApplicationService - getByToken");
+        Realtor realtor = realtorRepository.getByUsername(username);
+        log.info("[end] RealtorApplicationService - getByToken");
+        return null;
+    }
 }

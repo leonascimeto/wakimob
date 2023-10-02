@@ -34,4 +34,13 @@ public class RealtorInfraRepository implements RealtorRepository {
         log.info("[end] RealtorInfraRepository - get");
         return realtor;
     }
+
+    @Override
+    public Realtor getByUsername(String username) {
+        log.info("[start] RealtorInfraRepository - getByUsername");
+        Realtor realtor = realtorSpringDataJPARepository.findByUsername(username)
+                .orElseThrow(() -> ApiException.build(HttpStatus.NOT_FOUND, "Realtor not found"));
+        log.info("[end] RealtorInfraRepository - getByUsername");
+        return realtor;
+    }
 }

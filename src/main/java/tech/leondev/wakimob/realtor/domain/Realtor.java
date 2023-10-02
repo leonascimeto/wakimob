@@ -23,6 +23,10 @@ public class Realtor {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID idRealtor;
     @NotBlank
+    @Size(min = 6, max = 12)
+    @Column(unique = true)
+    private String username;
+    @NotBlank
     @Size(min = 4, max = 80)
     private String name;
     @NotBlank
@@ -36,12 +40,11 @@ public class Realtor {
     private LocalDateTime createdAt;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "credential_id")
-    Credential credential;
+
 
     public Realtor(RealtorCreateDTO realtorCreateDTO) {
         this.name = realtorCreateDTO.name();
+        this.username = realtorCreateDTO.username();
         this.cpf = realtorCreateDTO.cpf();
         this.birthDate = realtorCreateDTO.birthDate();
         this.createdAt = LocalDateTime.now();
