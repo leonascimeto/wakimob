@@ -13,4 +13,6 @@ public interface SaleService {
     SaleResponseDTO executeSalePlot(SaleRequestDTO saleRequestDTO, String username);
 
     SimulateSaleResponseDTO simulateApartmentSale(UUID idApartment, UUID idCustomer, String username, PaymentCondition paymentCondition);
+
+    SaleResponseDTO executeSaleApartment(SaleRequestDTO saleRequestDTO, String username);
 }

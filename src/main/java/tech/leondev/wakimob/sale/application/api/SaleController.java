@@ -43,4 +43,13 @@ public class SaleController implements SaleApi{
         log.info("[end] SaleController - simulateApartmentSale");
         return response;
     }
+
+    @Override
+    public SaleResponseDTO executeApartment(String token, SaleRequestDTO saleRequestDTO) {
+        log.info("[start] SaleController - executeApartment");
+        String username = tokenService.getUsernameFromToken(token);
+        SaleResponseDTO response = saleService.executeSaleApartment(saleRequestDTO, username);
+        log.info("[end] SaleController - executeApartment");
+        return response;
+    }
 }

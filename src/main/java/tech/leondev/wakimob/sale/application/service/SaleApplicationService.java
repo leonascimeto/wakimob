@@ -16,6 +16,7 @@ import tech.leondev.wakimob.sale.application.api.SaleResponseDTO;
 import tech.leondev.wakimob.sale.application.api.SimulateSaleResponseDTO;
 import tech.leondev.wakimob.sale.application.repository.SaleRepository;
 import tech.leondev.wakimob.sale.domain.PaymentCondition;
+import tech.leondev.wakimob.sale.domain.SaleApartment;
 import tech.leondev.wakimob.sale.domain.SalePlot;
 import tech.leondev.wakimob.sale.domain.SaleSimulator;
 
@@ -66,5 +67,18 @@ public class SaleApplicationService implements SaleService{
         SimulateSaleResponseDTO simulateSalePlotResponseDto = new SimulateSaleResponseDTO(saleSimulator);
         log.info("[end] SaleApplicationService - simulateApartmentSale");
         return simulateSalePlotResponseDto;
+    }
+
+    @Override
+    public SaleResponseDTO executeSaleApartment(SaleRequestDTO saleRequestDTO, String username) {
+        log.info("[start] SaleApplicationService - executeSalePlot");
+        Realtor realtor = realtorRepository.getByUsername(username);
+        Customer customer = customerRepository.getById(saleRequestDTO.idCustomer());
+        Apartment apartment = apartmentRepository.getById(saleRequestDTO.idProperty());
+        apartment.validPropertyAvailable();
+        apartment.soldProperty();
+        SaleApartment sale = saleRepository.saveApartment(new SaleApartment(apartment, customer, realtor, saleRequestDTO.paymentCondition()));
+        log.info("[end] SaleApplicationService - executeSalePlot");
+        return new SaleResponseDTO(sale);
     }
 }

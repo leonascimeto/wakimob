@@ -1,13 +1,16 @@
 package tech.leondev.wakimob.sale.application.api;
 
+import jakarta.persistence.Access;
 import lombok.*;
 import tech.leondev.wakimob.sale.domain.Sale;
+import tech.leondev.wakimob.sale.domain.SaleApartment;
 import tech.leondev.wakimob.sale.domain.SalePlot;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Value
+@Getter
+@NoArgsConstructor
 public class SaleResponseDTO {
     private String nameCustomer;
     private String cpfCustomer;
@@ -33,5 +36,19 @@ public class SaleResponseDTO {
         this.typePayment = salePlot.getPaymentCondition();
         this.numberInstallments = salePlot.getNumberInstallments();
         this.amountInstallments = salePlot.getAmountInstallments();
+    }
+
+    public SaleResponseDTO(SaleApartment sale) {
+        this.nameCustomer = sale.getCustomer().getName();
+        this.cpfCustomer = sale.getCustomer().getCpf();
+        this.nameRealtor = sale.getRealtor().getName();
+        this.dateSale = sale.getSaleDate();
+        this.titleProperty = sale.getApartment().getTitle();
+        this.addressProperty = sale.getApartment().getAddress();
+        this.priceProperty = sale.getApartment().getPrice();
+        this.realtorRake = sale.getRakeRealtor();
+        this.typePayment = sale.getPaymentCondition();
+        this.numberInstallments = sale.getNumberInstallments();
+        this.amountInstallments = sale.getAmountInstallments();
     }
 }

@@ -21,4 +21,8 @@ public interface SaleApi {
     SimulateSaleResponseDTO simulateApartmentSale(@RequestHeader(name = "Authorization",required = true) String token,
                                                            @PathVariable UUID idApartment, @PathVariable UUID idCustomer,
                                                            @PathVariable PaymentCondition paymentCondition);
+
+    @PostMapping("/apartments")
+    SaleResponseDTO executeApartment(@RequestHeader(name = "Authorization", required = true) String token,
+                                     @RequestBody @Valid SaleRequestDTO saleRequestDTO);
 }
