@@ -21,6 +21,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfiguration {
     private final SecurityFilter securityFilter;
 
+    private static final String[] DOCUMENTATION_OPENAPI = {
+            "/docs/index.html",
+            "/docs-park.html", "/docs-park/**",
+            "/v3/api-docs/**",
+            "/swagger-ui-custom.html", "/swagger-ui.html", "/swagger-ui/**",
+            "/**.html", "/webjars/**", "/configuration/**", "/swagger-resources/**"
+    };
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
@@ -29,6 +37,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/v1/realtors").permitAll()
                         .requestMatchers(HttpMethod.POST, "/v1/auth/login").permitAll()
+                        .requestMatchers(DOCUMENTATION_OPENAPI).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

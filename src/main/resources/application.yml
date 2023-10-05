@@ -1,8 +1,6 @@
 server:
   servlet:
     context-path: /wakimob/api
-  port:
-    8081
 
 spring:
   datasource:
@@ -17,3 +15,7 @@ api:
   securiry:
     token:
       secret: ${JWT_SECRET:mu-secret-key}
+
+springdoc:
+  swagger-ui:
+    path: /docs-wakimob.html
