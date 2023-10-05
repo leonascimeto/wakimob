@@ -18,10 +18,10 @@ public class SaleController implements SaleApi{
     private final TokenService tokenService;
 
     @Override
-    public SimulateSalePlotResponseDto simulatePlotSale(String token, UUID idPlot, UUID idCustomer, PaymentCondition paymentCondition) {
+    public SimulateSaleResponseDTO simulatePlotSale(String token, UUID idPlot, UUID idCustomer, PaymentCondition paymentCondition) {
         log.info("[start] SaleController - simulatePlotSale");
         String username = tokenService.getUsernameFromToken(token);
-        SimulateSalePlotResponseDto response = saleService.simulatePlotSale(idPlot,idCustomer, username, paymentCondition);
+        SimulateSaleResponseDTO response = saleService.simulatePlotSale(idPlot,idCustomer, username, paymentCondition);
         log.info("[end] SaleController - simulatePlotSale");
         return response;
     }
@@ -32,6 +32,15 @@ public class SaleController implements SaleApi{
         String username = tokenService.getUsernameFromToken(token);
         SaleResponseDTO response = saleService.executeSalePlot(saleRequestDTO, username);
         log.info("[end] SaleController - executeSalePlot");
+        return response;
+    }
+
+    @Override
+    public SimulateSaleResponseDTO simulateApartmentSale(String token, UUID idApartment, UUID idCustomer, PaymentCondition paymentCondition) {
+        log.info("[start] SaleController - simulateApartmentSale");
+        String username = tokenService.getUsernameFromToken(token);
+        SimulateSaleResponseDTO response = saleService.simulateApartmentSale(idApartment, idCustomer, username, paymentCondition);
+        log.info("[end] SaleController - simulateApartmentSale");
         return response;
     }
 }
