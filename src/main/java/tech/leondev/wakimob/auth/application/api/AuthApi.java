@@ -21,7 +21,7 @@ public interface AuthApi {
                                     schema = @Schema(implementation = AuthResponseDTO.class))
                     ),
                     @ApiResponse(responseCode = "401", description = "Credenciais inválidas",
-                            content = @Content(mediaType = "Aplication/json", schema = @Schema(implementation = ErrorApiResponse.class))
+                            content = @Content(mediaType = "Application/json", schema = @Schema(implementation = ErrorApiResponse.class))
                     )
             }
     )
