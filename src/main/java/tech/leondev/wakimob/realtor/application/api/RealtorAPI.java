@@ -9,6 +9,8 @@ import java.util.UUID;
 @RequestMapping("/v1/realtors")
 @RestController
 public interface RealtorAPI {
+
+
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     RealtorResponseDTO save(@RequestBody @Valid RealtorCreateDTO request);
