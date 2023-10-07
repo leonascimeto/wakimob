@@ -39,7 +39,7 @@ public interface RealtorAPI {
             responses = {
                     @ApiResponse(responseCode = "200", description = "Vendedor localizado com sucesso",
                             content = @Content(mediaType = "Application/json",
-                                    schema = @Schema(implementation = CustomerResponseDTO.class))
+                                    schema = @Schema(implementation = RealtorResponseDTO.class))
                     ),
                     @ApiResponse(responseCode = "404", description = "Vendedor não encontrado",
                             content = @Content(mediaType = "Application/json", schema = @Schema(implementation = ErrorApiResponse.class))
